@@ -1,0 +1,17 @@
+Setup Project ----Spring boot----
+
+จะใช้เว็บสร้างก็ได้ start.spring.io
+
+Project = Maven Project
+Language = Java
+Dependency
+-Lombok = ช่วยสร้าง method ให้เพียงแค่ใส่ annotation
+-Spring Web = เครื่องมือไว้แปลงข้อมูลรับข้อมูล rest api
+-Spring Data JPA = โค้ดจาวาคุยกับ database ง่ายโดยผ่าน repository
+-MySQL Driver = เชื่อมต่อกับดาตาเบส
+-Spring Boot DevTools = ช่วยให้ไม่ต้องรันโค้ดใหม่
+-Validation = ตรวจสอบความถูกต้องข้อมูล
+
+สร้าง folder entity,repository,controller
+จากนั้นเชื่อมต่อกับฐานข้อมูลกรณีใช้ 
+ถ้าไม่ใช้ สามารถทำแบบตัวอย่างได้ คือเป็นการยัดตัวข้อมูลตอนรันเริ่มต้น
