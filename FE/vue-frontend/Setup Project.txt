@@ -1,0 +1,16 @@
+npm create vue@latest
+npm i
+npm run dev
+
+เริ่ม pinia เขียนเรียกแบค
+
+env
+วิธีดึงมาใช้ แบบ VITE
+ที่env เขียนเป็น VITE_LOCAL_API_URL=http://localhost:8080/api
+ที่โค้ด เรียก const baseUrl = import.meta.env.VITE_LOCAL_API_URL
+
+แบบเก่า VUE CLI
+ที่env เขียนเป็น VUE_APP_LOCAL_API_URL=http://localhost:8080/api
+ที่โค้ด เรียก const baseUrl = process.env.VUE_APP_LOCAL_API_URL
+
+จากนั้นเขียน storeแล้วเอาเว็บมาดึงข้อมูลแล้วแสดงเหมือน ListView.vue
