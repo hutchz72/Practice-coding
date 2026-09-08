@@ -1,0 +1,15 @@
+C:\Users\hutch\Documents\Practice-coding\CSharpProjects\EmployeeApp\bin\Debug\net10.0\EmployeeApp.exe
+C:\Users\hutch\Documents\Practice-coding\CSharpProjects\EmployeeApp\bin\Debug\net10.0\EmployeeApp.deps.json
+C:\Users\hutch\Documents\Practice-coding\CSharpProjects\EmployeeApp\bin\Debug\net10.0\EmployeeApp.runtimeconfig.json
+C:\Users\hutch\Documents\Practice-coding\CSharpProjects\EmployeeApp\bin\Debug\net10.0\EmployeeApp.dll
+C:\Users\hutch\Documents\Practice-coding\CSharpProjects\EmployeeApp\bin\Debug\net10.0\EmployeeApp.pdb
+C:\Users\hutch\Documents\Practice-coding\CSharpProjects\EmployeeApp\obj\Debug\net10.0\EmployeeApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hutch\Documents\Practice-coding\CSharpProjects\EmployeeApp\obj\Debug\net10.0\EmployeeApp.AssemblyInfoInputs.cache
+C:\Users\hutch\Documents\Practice-coding\CSharpProjects\EmployeeApp\obj\Debug\net10.0\EmployeeApp.AssemblyInfo.cs
+C:\Users\hutch\Documents\Practice-coding\CSharpProjects\EmployeeApp\obj\Debug\net10.0\EmployeeApp.csproj.CoreCompileInputs.cache
+C:\Users\hutch\Documents\Practice-coding\CSharpProjects\EmployeeApp\obj\Debug\net10.0\EmployeeApp.sourcelink.json
+C:\Users\hutch\Documents\Practice-coding\CSharpProjects\EmployeeApp\obj\Debug\net10.0\EmployeeApp.dll
+C:\Users\hutch\Documents\Practice-coding\CSharpProjects\EmployeeApp\obj\Debug\net10.0\refint\EmployeeApp.dll
+C:\Users\hutch\Documents\Practice-coding\CSharpProjects\EmployeeApp\obj\Debug\net10.0\EmployeeApp.pdb
+C:\Users\hutch\Documents\Practice-coding\CSharpProjects\EmployeeApp\obj\Debug\net10.0\EmployeeApp.genruntimeconfig.cache
+C:\Users\hutch\Documents\Practice-coding\CSharpProjects\EmployeeApp\obj\Debug\net10.0\ref\EmployeeApp.dll
