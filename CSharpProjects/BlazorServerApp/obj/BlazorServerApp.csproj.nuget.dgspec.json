@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\hutch\\Documents\\Practice-coding\\CSharpProjects\\BlazorServerApp\\BlazorServerApp.csproj": {}
+    "C:\\Users\\hutch\\Documents\\Practice-coding\\CSharpProjects\\BlazorServerApp\\BlazorServerApp.csproj": {}
   },
   "projects": {
-    "c:\\Users\\hutch\\Documents\\Practice-coding\\CSharpProjects\\BlazorServerApp\\BlazorServerApp.csproj": {
+    "C:\\Users\\hutch\\Documents\\Practice-coding\\CSharpProjects\\BlazorServerApp\\BlazorServerApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\hutch\\Documents\\Practice-coding\\CSharpProjects\\BlazorServerApp\\BlazorServerApp.csproj",
+        "projectUniqueName": "C:\\Users\\hutch\\Documents\\Practice-coding\\CSharpProjects\\BlazorServerApp\\BlazorServerApp.csproj",
         "projectName": "BlazorServerApp",
-        "projectPath": "c:\\Users\\hutch\\Documents\\Practice-coding\\CSharpProjects\\BlazorServerApp\\BlazorServerApp.csproj",
+        "projectPath": "C:\\Users\\hutch\\Documents\\Practice-coding\\CSharpProjects\\BlazorServerApp\\BlazorServerApp.csproj",
         "packagesPath": "C:\\Users\\hutch\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\hutch\\Documents\\Practice-coding\\CSharpProjects\\BlazorServerApp\\obj\\",
+        "outputPath": "C:\\Users\\hutch\\Documents\\Practice-coding\\CSharpProjects\\BlazorServerApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hutch\\AppData\\Roaming\\NuGet\\NuGet.Config"
