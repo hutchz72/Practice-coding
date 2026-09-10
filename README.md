@@ -1,456 +1,475 @@
-# Practice-coding
-C#
-https://www.youtube.com/watch?v=rab_1cFQUF4
+# 🌱 C# Practice Notes
 
-ต้องมี .net sdk สำหรับ visual studio ที่ไปโหลดมา
+โน้ตสรุปการฝึกเขียน C# แบบเข้าใจง่าย ๆ เก็บไว้ทบทวนตอนลืม ✨
+
+> 🎥 อ้างอิงวิดีโอ: [Practice-coding C#](https://www.youtube.com/watch?v=rab_1cFQUF4)
+
+---
+
+## 📦 เริ่มต้นโปรเจกต์
+
+ต้องมี **.NET SDK** ก่อน เช็กเวอร์ชันด้วย:
+
+```bash
 dotnet --version
+```
 
-จากนั้น สร้าง console project โดยใช้ .net sdk และ cli
-dotnet new console -o name จะใส่ path ก็ใส่ /หลังชื่อแล้วใส่ชื่ออีกทีก็ได้
+สร้าง console project ด้วย CLI:
 
-เวลารัน dotnet run เฉยๆ อย่าลืม cd เข้าไปที่ project
+```bash
+dotnet new console -o ชื่อโปรเจกต์
+# จะใส่ path ก็เติม / แล้วตามด้วยชื่ออีกทีได้
+```
 
-ืdotnet new blazor -o name สำหรับทำเป็น web application fullstack 
-dotnet new console -o name สำหรับ console ไว้รันที่ command line เฉยๆ
+รันโปรเจกต์ (อย่าลืม `cd` เข้าไปที่โฟลเดอร์โปรเจกต์ก่อน):
 
-สำหรับการแก้ไขปัญหาเรื่อง ReadKey ไม่ขึ้นปุ่มเป็น none ให้ไปทำโฟลเดอร์ .vscode แล้วเปลี่ยน console เป็น integratedTerminal ถ้ามีไฟล์อยู่แล้วแค่ไปเปลี่ยนพอ ถ้าไม่มีไปทำเพิ่ม
+```bash
+dotnet run
+```
 
-ตัว object หรือเก็บข้อมูลใช้ ได้ทั้ง class หรือ record 
-สรุปวิธีจำง่ายๆ เพื่อนำไปเลือกใช้
+| คำสั่ง | ใช้ทำอะไร |
+|---|---|
+| `dotnet new console -o name` | โปรเจกต์ console รันที่ command line |
+| `dotnet new blazor -o name` | โปรเจกต์เว็บแบบ fullstack |
 
-เลือกใช้ class เมื่อ: ออบเจกต์นั้นมีการเปลี่ยนสถานะบ่อยๆ มีเมธอดการทำงานซับซ้อน หรือเป็นคลาสเชิงจัดการระบบ (เช่น OrderManager, UserService, PlayerScore)
+### 🔧 แก้ปัญหา `Console.ReadKey` ไม่ขึ้นปุ่ม
 
-เลือกใช้ record เมื่อ: ออบเจกต์นั้นทำหน้าที่เป็นตัวส่งต่อข้อมูล อ่านอย่างเดียว หรือเก็บข้อมูลที่ต้องการนำมาเปรียบเทียบค่ากัน (เช่น DTO, ข้อมูลพนักงาน Employee, ข้อมูลสินค้า Product, Response จาก API)
+ไปที่โฟลเดอร์ `.vscode` → เปลี่ยนค่า `console` เป็น `integratedTerminal`
+(ถ้ามีไฟล์อยู่แล้วแก้เลย ถ้าไม่มีก็สร้างเพิ่ม)
 
-int - stores integers (whole numbers), without decimals, such as 123 or -123
-double - stores floating point numbers, with decimals, such as 19.99 or -19.99
-char - stores single characters, such as 'a' or 'B'. Char values are surrounded by single quotes
-string - stores text, such as "Hello World". String values are surrounded by double quotes
-bool - stores values with two states: true or false
-long
-float
+---
 
-const มีเหมือนกัน
+## 🧱 Class vs Record — เลือกใช้ยังไงดี?
 
-Names can contain letters, digits and the underscore character (_)
-Names must begin with a letter or underscore
-Names should start with a lowercase letter, and cannot contain whitespace
-Names are case-sensitive ("myVar" and "myvar" are different variables)
-Reserved words (like C# keywords, such as int or double) cannot be used as names
+| เลือกใช้ | เมื่อไหร่ |
+|---|---|
+| **class** | ออบเจกต์เปลี่ยนสถานะบ่อย มี method ซับซ้อน หรือเป็นตัวจัดการระบบ เช่น `OrderManager`, `UserService`, `PlayerScore` |
+| **record** | ใช้ส่งต่อข้อมูล อ่านอย่างเดียว หรือเทียบค่ากัน เช่น DTO, `Employee`, `Product`, response จาก API |
 
-Implicit casting is done automatically when passing a smaller size type to a larger size type:
-Explicit casting must be done manually by placing the type in parentheses in front of the value: ประมาณแบบ แปลงจาก 9.78 เป็น int ก็จะเป็น 9
+---
 
-Convert.ToString
-.ToDouble ได้หมดเลย
+## 🔤 ชนิดข้อมูล (Data Types)
 
-Operators
-=	x = 5	x = 5	
-+=	x += 3	x = x + 3	
--=	x -= 3	x = x - 3	
-*=	x *= 3	x = x * 3	
-/=	x /= 3	x = x / 3	
-%=	x %= 3	x = x % 3	
-&=	x &= 3	x = x & 3 คล้ายกับเอาค่า x มาหารทีหลังแบบเอาผลหาร ไม่สนเศษ
-|=	x |= 3	x = x | 3	
-^=	x ^= 3	x = x ^ 3	
->>=	x >>= 3	x = x >> 3	
-<<=	x <<= 3	x = x << 3
+| Type | เก็บอะไร | ตัวอย่าง |
+|---|---|---|
+| `int` | จำนวนเต็ม | `123`, `-123` |
+| `double` | ทศนิยม | `19.99`, `-19.99` |
+| `char` | ตัวอักษรเดียว (ใส่ `' '`) | `'a'`, `'B'` |
+| `string` | ข้อความ (ใส่ `" "`) | `"Hello World"` |
+| `bool` | จริง/เท็จ | `true`, `false` |
+| `long` / `float` | ตัวเลขขนาดใหญ่ / ทศนิยม | — |
+| `const` | ค่าคงที่ | — |
 
-Logical
-&& || 
+### 📛 กฎการตั้งชื่อตัวแปร
+- ใช้ตัวอักษร ตัวเลข และ `_` ได้
+- ต้องขึ้นต้นด้วยตัวอักษรหรือ `_`
+- แนะนำให้ขึ้นต้นด้วยตัวพิมพ์เล็ก ห้ามมีช่องว่าง
+- ตัวพิมพ์เล็ก-ใหญ่ถือว่าต่างกัน (`myVar` ≠ `myvar`)
+- ห้ามใช้ keyword ของ C# เป็นชื่อตัวแปร (เช่น `int`, `double`)
 
-Math.Max(x,y) method can be used to find the highest value of x and y
-Math.Min(x,y) method can be used to find the lowest value of of x and y
-Math.Sqrt(x) method returns the square root of x
-Math.Abs(x) method returns the absolute (positive) value of x
-Math.Round() rounds a number to the nearest whole number
+### 🔁 การแปลงชนิดข้อมูล
+- **Implicit casting**: แปลงอัตโนมัติ เมื่อแปลงจาก type เล็ก → type ใหญ่
+- **Explicit casting**: ต้องแปลงเอง ใส่ type ในวงเล็บหน้าค่า เช่น `(int)9.78` → ได้ `9`
+- ใช้ `Convert.ToString()`, `Convert.ToDouble()` ได้เช่นกัน
 
-string txt;
-ใช้ txt.ToUpper() txt.ToLower()
+---
 
-string.Concat(firstName, lastName)
+## ➕ Operators
 
-String Interpolation '$user'
+| Operator | ตัวอย่าง | เทียบเท่ากับ |
+|---|---|---|
+| `=` | `x = 5` | `x = 5` |
+| `+=` | `x += 3` | `x = x + 3` |
+| `-=` | `x -= 3` | `x = x - 3` |
+| `*=` | `x *= 3` | `x = x * 3` |
+| `/=` | `x /= 3` | `x = x / 3` |
+| `%=` | `x %= 3` | `x = x % 3` |
+| `&=` | `x &= 3` | `x = x & 3` (คล้ายหารแล้วเอาผลหาร ไม่สนเศษ) |
+| `\|=` | `x \|= 3` | `x = x \| 3` |
+| `^=` | `x ^= 3` | `x = x ^ 3` |
+| `>>=` | `x >>= 3` | `x = x >> 3` |
+| `<<=` | `x <<= 3` | `x = x << 3` |
 
-myString[0]
-You can access the characters in a string by referring to its index number inside square brackets []
+**Logical:** `&&` และ `||`
 
-string myString = "Hello";
-myString.IndexOf("e") = 1
-You can also find the index position of a specific character in a string, by using the IndexOf() method
+### 🧮 Math methods
+```csharp
+Math.Max(x, y)   // ค่ามากสุดระหว่าง x, y
+Math.Min(x, y)   // ค่าน้อยสุดระหว่าง x, y
+Math.Sqrt(x)     // รากที่สองของ x
+Math.Abs(x)      // ค่าสัมบูรณ์ (บวกเสมอ)
+Math.Round(x)    // ปัดเป็นจำนวนเต็มที่ใกล้สุด
+```
 
-Another useful method is Substring(), which extracts the characters from a string, starting from the specified character position/index, and returns a new string. This method is often used together with IndexOf() to get the specific character position
+---
 
-Because strings must be written within quotes, C# will misunderstand this string, and generate an error
-\'	'	Single quote
-\"	"	Double quote
-\\	\	Backslash
+## 🔡 String
 
-string txt = "It\'s alright."; => result It's alright.
+```csharp
+txt.ToUpper();
+txt.ToLower();
 
+string.Concat(firstName, lastName);
+
+// String Interpolation
+$"{user}"
+```
+
+- `myString[0]` → เข้าถึงตัวอักษรในตำแหน่งนั้นด้วย index
+- `myString.IndexOf("e")` → หาตำแหน่ง index ของตัวอักษร
+- `Substring()` → ตัดข้อความจากตำแหน่งที่กำหนด (มักใช้คู่กับ `IndexOf()`)
+
+### Escape characters
+| Code | ผลลัพธ์ | ความหมาย |
+|---|---|---|
+| `\'` | `'` | Single quote |
+| `\"` | `"` | Double quote |
+| `\\` | `\` | Backslash |
+
+```csharp
+string txt = "It\'s alright."; // => It's alright.
+```
+
+---
+
+## ❓ Ternary Operator (แทน if-else)
+
+```csharp
 int time = 20;
 string result = (time < 18) ? "Good day." : "Good evening.";
-ใช้แทน if else ได้
+```
 
-The do/while loop is a variant of the while loop. This loop will execute the code block once, before checking if the condition is true, then it will repeat the loop as long as the condition is true.
+---
 
-while เช็กก่อนทำ
-do while ทำก่อนเช็ค
+## 🔂 Loops
 
-for (int i = 0; i < 5; i++) 
+- **while** → เช็กเงื่อนไข**ก่อน**ทำ
+- **do while** → ทำ**ก่อน**แล้วค่อยเช็กเงื่อนไข (รันอย่างน้อย 1 ครั้งเสมอ)
+
+```csharp
+for (int i = 0; i < 5; i++)
 {
-  Console.WriteLine(i);
+    Console.WriteLine(i);
 }
 
-string[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
-foreach (string i in cars) 
+string[] cars = { "Volvo", "BMW", "Ford", "Mazda" };
+foreach (string i in cars)
 {
-  Console.WriteLine(i);
+    Console.WriteLine(i);
 }
+```
 
-ิbreak กับ continue ใช้ได้ทั้ง for loop while loop เพื่อหยุดการกระทำนั้นไม่ทำ loopต่อหรือข้ามไปอันถัดไปได้เลย
+- `break` และ `continue` ใช้ได้ทั้ง `for` และ `while`
+  - `break` → หยุด loop ทันที
+  - `continue` → ข้ามไปรอบถัดไป
 
-Array
-string[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
-int[] myNum = {10, 20, 30, 40};
+---
 
-วิธี access Console.WriteLine(cars[0]);
-cars.length
+## 📚 Array
 
-// Create an array of four elements, and add values later
+```csharp
+string[] cars = { "Volvo", "BMW", "Ford", "Mazda" };
+int[] myNum = { 10, 20, 30, 40 };
+
+Console.WriteLine(cars[0]);   // เข้าถึงสมาชิก
+cars.Length;                  // ความยาว array
+```
+
+### วิธีสร้าง array หลายแบบ
+
+```csharp
+// สร้างว่างไว้ก่อน ใส่ค่าทีหลัง
 string[] cars = new string[4];
 
-// Create an array of four elements and add values right away 
-string[] cars = new string[4] {"Volvo", "BMW", "Ford", "Mazda"};
+// สร้างพร้อมค่า และระบุขนาด
+string[] cars = new string[4] { "Volvo", "BMW", "Ford", "Mazda" };
 
-// Create an array of four elements without specifying the size 
-string[] cars = new string[] {"Volvo", "BMW", "Ford", "Mazda"};
+// ไม่ต้องระบุขนาด
+string[] cars = new string[] { "Volvo", "BMW", "Ford", "Mazda" };
 
-// Create an array of four elements, omitting the new keyword, and without specifying the size
-string[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+// ไม่ใช้ new เลย
+string[] cars = { "Volvo", "BMW", "Ford", "Mazda" };
+```
 
-ใช้ for loop array
-for (int i = 0; i < cars.Length; i++) 
+### วน loop array
+
+```csharp
+for (int i = 0; i < cars.Length; i++)
 {
-  Console.WriteLine(cars[i]);
+    Console.WriteLine(cars[i]);
 }
 
-string[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
-foreach (string i in cars) 
+foreach (string i in cars)
 {
-  Console.WriteLine(i);
+    Console.WriteLine(i);
 }
 
-Array.Sort(cars); ตรงๆได้เลย แล้วเดะมันเรียงให้
+Array.Sort(cars); // เรียงลำดับให้อัตโนมัติ
+```
 
-using System;
+### LINQ กับ Array
+
+```csharp
 using System.Linq;
 
-namespace MyApplication
-{
-  class Program
-  {
-    static void Main(string[] args)
-    {
-      int[] myNumbers = {5, 1, 8, 9};
-      Console.WriteLine(myNumbers.Max());  // returns the largest value
-      Console.WriteLine(myNumbers.Min());  // returns the smallest value
-      Console.WriteLine(myNumbers.Sum());  // returns the sum of elements
-    }
-  }
-}
+int[] myNumbers = { 5, 1, 8, 9 };
+Console.WriteLine(myNumbers.Max()); // ค่ามากสุด
+Console.WriteLine(myNumbers.Min()); // ค่าน้อยสุด
+Console.WriteLine(myNumbers.Sum()); // ผลรวม
+```
 
-int[,] numbers = { {1, 4, 2}, {3, 6, 8} };
+### Multidimensional Array (2 มิติ)
+
+```csharp
+int[,] numbers = { { 1, 4, 2 }, { 3, 6, 8 } };
 Console.WriteLine(numbers[0, 2]);  // Outputs 2
 
-numbers[0, 0] = 5;  // Change value to 5
-Console.WriteLine(numbers[0, 0]); // Outputs 5 instead of 1
+numbers[0, 0] = 5;
+Console.WriteLine(numbers[0, 0]);  // Outputs 5
 
 foreach (int i in numbers)
 {
-  Console.WriteLine(i);
-} 
+    Console.WriteLine(i);
+}
 
-for (int i = 0; i < numbers.GetLength(0); i++) 
-{ 
-  for (int j = 0; j < numbers.GetLength(1); j++) 
-  { 
-    Console.WriteLine(numbers[i, j]); 
-  } 
-}  
-
-MyMethod() is the name of the method
-static means that the method belongs to the Program class and not an object of the Program class. You will learn more about objects and how to access methods through objects later in this tutorial.
-void means that this method does not have a return value. You will learn more about return values later in this chapter
-
-static void MyMethod() 
+for (int i = 0; i < numbers.GetLength(0); i++)
 {
-  Console.WriteLine("I just got executed!");
+    for (int j = 0; j < numbers.GetLength(1); j++)
+    {
+        Console.WriteLine(numbers[i, j]);
+    }
+}
+```
+
+---
+
+## 🛠️ Methods
+
+```csharp
+static void MyMethod()
+{
+    Console.WriteLine("I just got executed!");
 }
 
 static void Main(string[] args)
 {
-  MyMethod();
+    MyMethod(); // Outputs "I just got executed!"
 }
+```
 
-// Outputs "I just got executed!"
+- **`static`** → method นี้เป็นของ class เอง ไม่ต้องสร้าง object ก่อนเรียกใช้
+- **`void`** → ไม่มีการ return ค่า
 
-Parameter
+### Parameter
 
-static void MyMethod(string fname, int age) 
+```csharp
+static void MyMethod(string fname, int age)
 {
-  Console.WriteLine(fname + " is " + age);
+    Console.WriteLine(fname + " is " + age);
 }
 
-static void Main(string[] args)
+MyMethod("Liam", 5);   // Liam is 5
+MyMethod("Jenny", 8);  // Jenny is 8
+```
+
+### Default parameter
+
+```csharp
+static void MyMethod(string country = "Norway")
 {
-  MyMethod("Liam", 5);
-  MyMethod("Jenny", 8);
-  MyMethod("Anja", 31);
+    Console.WriteLine(country);
 }
 
-// Liam is 5
-// Jenny is 8
-// Anja is 31
+MyMethod("Sweden"); // Sweden
+MyMethod();         // Norway (ค่า default)
+```
 
-static void MyMethod(string country = "Norway") 
-{
-  Console.WriteLine(country);
-}
+---
 
-static void Main(string[] args)
-{
-  MyMethod("Sweden");
-  MyMethod("India");
-  MyMethod();
-  MyMethod("USA");
-}
+## 🚗 Class & Object
 
-An object is created from a class. We have already created the class named Car, so now we can use this to create objects.
+สร้าง object จาก class ด้วยคีย์เวิร์ด `new`
 
-To create an object of Car, specify the class name, followed by the object name, and use the keyword new
-
-class Car 
-{
-  string color = "red";
-
-  static void Main(string[] args)
-  {
-    Car myObj = new Car();
-    Console.WriteLine(myObj.color);
-  }
-}
-
+```csharp
 class Car
 {
-  string color = "red";
-  static void Main(string[] args)
-  {
-    Car myObj1 = new Car();
-    Car myObj2 = new Car();
-    Console.WriteLine(myObj1.color);
-    Console.WriteLine(myObj2.color);
-  }
+    string color = "red";
+
+    static void Main(string[] args)
+    {
+        Car myObj = new Car();
+        Console.WriteLine(myObj.color);
+    }
 }
+```
 
-สร้าง class หลากประเภทก็สร้างclass คนละไฟล์
+> 💡 แต่ละ object ที่สร้างจาก class เดียวกัน จะมีค่าของตัวเองแยกกัน (`myObj1`, `myObj2` ไม่ยุ่งกัน)
+>
+> ถ้ามีหลาย class แนะนำแยกไฟล์กันเป็นคลาส ๆ ไป
 
-public	The code is accessible for all classes
-private	The code is only accessible within the same class
-protected	The code is accessible within the same class, or in a class that is inherited from that class. You will learn more about inheritance in a later chapter
-internal	The code is only accessible within its own assembly, but not from another assembly. You will learn more about this in a later chapter
+### 🔐 Access Modifiers
 
-get set มี 2 แบบ
+| Modifier | เข้าถึงได้จากที่ไหน |
+|---|---|
+| `public` | ทุก class เข้าถึงได้ |
+| `private` | เข้าถึงได้เฉพาะภายใน class เดียวกัน |
+| `protected` | class เดียวกัน หรือ class ที่สืบทอดมา |
+| `internal` | เฉพาะภายใน assembly เดียวกันเท่านั้น |
+
+### 🎛️ Property (get / set)
+
+**แบบเต็ม** (มี field แยก):
+```csharp
 class Person
 {
-  private string name; // field
-  public string Name   // property
-  {
-    get { return name; }
-    set { name = value; }
-  }
+    private string name; // field
+    public string Name   // property
+    {
+        get { return name; }
+        set { name = value; }
+    }
 }
+```
 
-class Program
-{
-  static void Main(string[] args)
-  {
-    Person myObj = new Person();
-    myObj.Name = "Liam";
-    Console.WriteLine(myObj.Name);
-  }
-}
-
-
+**แบบสั้น (Auto-property):**
+```csharp
 class Person
 {
-  public string Name  // property
-  { get; set; }
+    public string Name { get; set; }
 }
+```
 
-class Program
+ใช้งานเหมือนกัน:
+```csharp
+Person myObj = new Person();
+myObj.Name = "Liam";
+Console.WriteLine(myObj.Name);
+```
+
+---
+
+## 🧬 Inheritance (การสืบทอด)
+
+```csharp
+class Vehicle // base class (parent)
 {
-  static void Main(string[] args)
-  {
-    Person myObj = new Person();
-    myObj.Name = "Liam";
-    Console.WriteLine(myObj.Name);
-  }
+    public string brand = "Ford";
+    public void honk()
+    {
+        Console.WriteLine("Tuut, tuut!");
+    }
 }
 
-Inheritance
-
-class Vehicle  // base class (parent) 
+class Car : Vehicle // derived class (child)
 {
-  public string brand = "Ford";  // Vehicle field
-  public void honk()             // Vehicle method 
-  {                    
-    Console.WriteLine("Tuut, tuut!");
-  }
+    public string modelName = "Mustang";
 }
 
-class Car : Vehicle  // derived class (child)
+Car myCar = new Car();
+myCar.honk();
+Console.WriteLine(myCar.brand + " " + myCar.modelName);
+```
+
+> 🔒 ใส่ `sealed` หน้า class → class อื่นสืบทอดต่อไม่ได้
+
+### `virtual` + `override`
+
+```csharp
+class Animal // parent
 {
-  public string modelName = "Mustang";  // Car field
+    public virtual void animalSound()
+    {
+        Console.WriteLine("The animal makes a sound");
+    }
 }
 
-class Program
-{
-  static void Main(string[] args)
-  {
-    // Create a myCar object
-    Car myCar = new Car();
-
-    // Call the honk() method (From the Vehicle class) on the myCar object
-    myCar.honk();
-
-    // Display the value of the brand field (from the Vehicle class) and the value of the modelName from the Car class
-    Console.WriteLine(myCar.brand + " " + myCar.modelName);
-  }
-}
-
-ใส่ sealed หน้า class จะทำให้ class อื่นมา inheritance ไม่ได้
-
-
-class Animal  // Base class (parent) 
-{
-  public virtual void animalSound() 
-  {
-    Console.WriteLine("The animal makes a sound");
-  }
-}
-
-class Pig : Animal  // Derived class (child) 
-{
-  public override void animalSound() 
-  {
-    Console.WriteLine("The pig says: wee wee");
-  }
-}
-
-class Dog : Animal  // Derived class (child) 
-{
-  public override void animalSound() 
-  {
-    Console.WriteLine("The dog says: bow wow");
-  }
-}
-
-class Program 
-{
-  static void Main(string[] args) 
-  {
-    Animal myAnimal = new Animal();  // Create a Animal object
-    Animal myPig = new Pig();  // Create a Pig object
-    Animal myDog = new Dog();  // Create a Dog object
-
-    myAnimal.animalSound();
-    myPig.animalSound();
-    myDog.animalSound();
-  }
-}
-
-การใส่ overide ทำให้ทับกับตัวใหญ่ได้ ถ้าไม่ใส่จะไม่ทับและแสดงตัวเก่า
-
-Data abstraction is the process of hiding certain details and showing only essential information to the user.
-Abstraction can be achieved with either abstract classes or interfaces (which you will learn more about in the next chapter).
-
-The abstract keyword is used for classes and methods:
-
-Abstract class: is a restricted class that cannot be used to create objects (to access it, it must be inherited from another class).
-
-Abstract method: can only be used in an abstract class, and it does not have a body. The body is provided by the derived class (inherited from).
-An abstract class can have both abstract and regular methods
-
-abstract เป็นตัวกึ่งบังคับให้คลาสที่มาใช้มาเรียก ต้องทำ method ชื่อที่กำหนดเป็นของตนเอง
-
-// Abstract class
-abstract class Animal
-{
-  // Abstract method (does not have a body)
-  public abstract void animalSound();
-  // Regular method
-  public void sleep()
-  {
-    Console.WriteLine("Zzz");
-  }
-}
-
-// Derived class (inherit from Animal)
 class Pig : Animal
 {
-  public override void animalSound()
-  {
-    // The body of animalSound() is provided here
-    Console.WriteLine("The pig says: wee wee");
-  }
+    public override void animalSound()
+    {
+        Console.WriteLine("The pig says: wee wee");
+    }
 }
 
-class Program
+class Dog : Animal
 {
-  static void Main(string[] args)
-  {
-    Pig myPig = new Pig(); // Create a Pig object
-    myPig.animalSound();  // Call the abstract method
-    myPig.sleep();  // Call the regular method
-  }
+    public override void animalSound()
+    {
+        Console.WriteLine("The dog says: bow wow");
+    }
 }
+```
 
+> ✏️ ถ้าใส่ `override` → method ของ child จะทับของ parent
+> ถ้าไม่ใส่ → จะยังใช้ของ parent อยู่เหมือนเดิม
 
-An interface is a completely "abstract class", which can only contain abstract methods and properties (with empty bodies)
+---
 
-// Interface
-interface IAnimal 
+## 🎭 Abstraction
+
+**Abstract class** สร้าง object ตรง ๆ ไม่ได้ ต้องถูก inherit ไปใช้เท่านั้น
+**Abstract method** ไม่มี body ต้องไปเขียน body ใน class ลูกที่ override
+
+```csharp
+abstract class Animal
 {
-  void animalSound(); // interface method (does not have a body)
+    public abstract void animalSound(); // ไม่มี body
+    public void sleep()                 // method ปกติมี body ได้
+    {
+        Console.WriteLine("Zzz");
+    }
 }
 
-// Pig "implements" the IAnimal interface
-class Pig : IAnimal 
+class Pig : Animal
 {
-  public void animalSound() 
-  {
-    // The body of animalSound() is provided here
-    Console.WriteLine("The pig says: wee wee");
-  }
+    public override void animalSound()
+    {
+        Console.WriteLine("The pig says: wee wee");
+    }
 }
 
-class Program 
+Pig myPig = new Pig();
+myPig.animalSound();
+myPig.sleep();
+```
+
+---
+
+## 🧩 Interface
+
+interface คือ "abstract class ที่สมบูรณ์" มีแต่ method/property ที่ไม่มี body เลย
+
+```csharp
+interface IAnimal
 {
-  static void Main(string[] args) 
-  {
-    Pig myPig = new Pig();  // Create a Pig object
-    myPig.animalSound();
-  }
+    void animalSound(); // ไม่มี body
 }
 
-enum Level 
+class Pig : IAnimal
 {
-  Low,
-  Medium,
-  High
+    public void animalSound()
+    {
+        Console.WriteLine("The pig says: wee wee");
+    }
 }
 
+Pig myPig = new Pig();
+myPig.animalSound();
+```
 
+---
 
+## 🎌 Enum
+
+```csharp
+enum Level
+{
+    Low,
+    Medium,
+    High
+}
+```
+
+---
+
+<p align="center">Made with 🧋 and a lot of <code>Console.WriteLine()</code></p>
