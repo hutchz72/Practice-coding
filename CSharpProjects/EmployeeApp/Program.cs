@@ -1,4 +1,5 @@
 ﻿// Console.WriteLine("Hello, World!");
+using System.Text.RegularExpressions;
 
 // bool exit = false;
 
@@ -105,13 +106,54 @@ public static class ExerciseB2
     {
         Console.WriteLine("Check incoming word Exercise");
         string input = Console.ReadLine() ?? "";
-        if (input == "palindrome")
+        // 1. ทำความสะอาดข้อความ: แปลงเป็นตัวพิมพ์เล็ก และตัดสิ่งที่ไม่ใช่ a-z หรือ 0-9 ออก
+        string cleaned = Regex.Replace(input.ToLower(), @"[^a-z0-9]", "");
+
+        // 2. กลับด้านข้อความ (Reverse)
+        string reversed = new string(cleaned.Reverse().ToArray());
+
+        // 3. ตรวจสอบเงื่อนไข Palindrome
+        bool isPalindrome = cleaned.Length > 0 && cleaned == reversed;
+
+        // 4. แสดงผลลัพธ์
+        Console.WriteLine($"\nCleaned string: \"{cleaned}\"");
+        Console.WriteLine($"Reversed string: \"{reversed}\"");
+        Console.WriteLine($"Is Palindrome: {isPalindrome}");
+    }
+}
+
+public static class ExerciseB3
+{
+    public static void Run()
+    {
+        Console.WriteLine("Calculate grade");
+        Console.WriteLine("Enter your score:");
+        string input = Console.ReadLine() ?? "";
+        int number = int.Parse(input);
+
+        if (number >= 80)
         {
-            Console.WriteLine("The word is correct!");
+            Console.WriteLine("Your grade is A");
+        }
+        else if (number >= 70 && number < 80)
+        {
+            Console.WriteLine("Your grade is B");
+        }
+        else if (number >= 60 && number < 70)
+        {
+            Console.WriteLine("Your grade is C");
+        }
+        else if (number >= 50 && number < 60)
+        {
+            Console.WriteLine("Your grade is D");
+        }
+        else if (number < 50)
+        {
+            Console.WriteLine("Your grade is F");
         }
         else
         {
-            Console.WriteLine("The word is incorrect!");
+            Console.WriteLine("Cannot calculate your grade");
         }
     }
 }
